@@ -1,0 +1,45 @@
+@import '../../../commons/style.scss';
+
+.m-menu {
+    margin: unset;
+    position: relative;
+    height: 800px;
+
+    &-col {
+        &_left {
+            padding: 40px;
+            position: absolute;
+            width: 40%;
+            top: 50%;
+            left: 33%;
+            transform: translate(-50%, -50%);
+            // background: rgba(0, 0, 0, 0.5);
+            text-align: end;
+
+            &-h1 {
+                color: $white-color;
+            }
+
+            &-h2 {
+
+                color: $brown-color;
+            }
+
+            &-p {
+                margin-top: 40px;
+                color: $gray-color;
+            }
+        }
+
+        &_right {
+            position: absolute;
+            width: 32%;
+            height: auto;
+            top: 50%;
+            left: 69%;
+            transform: translate(-50%, -50%);
+            text-align: start;
+        }
+
+    }
+}

@@ -1,0 +1,22 @@
+@import '../../../commons/style.scss';
+.navWrapper {
+    position: fixed;
+    top:0;
+    z-index: 9999;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: {
+        top: 20px;
+        bottom:20px;
+    }
+    &-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        &-drop {
+            color: $white-color !important;
+            
+        }
+    }
+}

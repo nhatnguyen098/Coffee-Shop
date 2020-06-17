@@ -1,0 +1,7 @@
+@import '../../../commons/style.scss';
+.activeHover {
+    &:hover {
+        background-color: unset !important;
+        border: 1px solid $brown-color !important;
+    }
+}

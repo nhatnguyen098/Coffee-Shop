@@ -1,0 +1,23 @@
+import { all, call, takeLatest, put } from "redux-saga/effects";
+import {FETCHING_PRODUCT} from '../../constants/actionTypes/productType'
+import {fetching_product_success,fetching_product_error} from '../actions/products'
+import {getProListAPI} from '../../services/productService'
+
+function* getProductSaga() {
+    try {
+        const data = yield call(getProListAPI);
+        yield put(fetching_product_success(data));
+    } catch (error) {
+        yield put(fetching_product_error(error));
+    }
+}
+
+
+export default function* watchProductSaga() {
+    yield all([
+        takeLatest(FETCHING_PRODUCT, getProductSaga),
+    ]);
+}
+
+
+

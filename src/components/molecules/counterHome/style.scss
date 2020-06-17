@@ -1,0 +1,55 @@
+@import '../../../commons/style.scss';
+
+.m-counter {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: unset;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: {
+        left: 150px;
+        right: 150px;
+    }
+
+    &-col {
+        text-align: center;
+
+        &-count {
+            margin-top: 30px;
+            font-size: 30px;
+            color: $brown-color;
+        }
+
+        &-text {
+            color: $white-color;
+        }
+
+        &-icons {
+            position: relative;
+
+            &:after {
+                content: '';
+                position: absolute;
+                transform: translate(-50%, -50%);
+                top: 50%;
+                left: 50%;
+                border: 1px solid $brown-color;
+                width: 80px;
+                height: 80px;
+
+            }
+
+            &:hover {
+                transform: rotate(135deg);
+                transition: 0.5s;
+            }
+
+
+        }
+
+    }
+}

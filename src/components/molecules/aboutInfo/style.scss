@@ -1,0 +1,37 @@
+@import '../../../commons/style.scss';
+.m-aboutInfo {
+    margin:unset;
+    position: relative;
+    &-col {
+        &_left {
+            padding: {
+                top: 10px;
+                bottom:10px;
+            }
+            &-img {
+                height: 650px;
+                opacity: 0.9;
+            }
+        }
+        &_right {
+            padding: 40px;
+            position: absolute;
+            width: 40%;
+            top: 50%;
+            left: 73%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.5);
+            &-h1 {
+                color: $white-color;
+            }
+            &-h2 {
+                color: $brown-color;
+            }
+            &-p {
+                margin-top:40px;
+                color: $gray-color;
+            }
+        }
+
+    }
+}
