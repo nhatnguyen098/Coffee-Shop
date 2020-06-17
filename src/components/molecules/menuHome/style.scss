@@ -13,7 +13,6 @@
             top: 50%;
             left: 33%;
             transform: translate(-50%, -50%);
-            // background: rgba(0, 0, 0, 0.5);
             text-align: end;
 
             &-h1 {
@@ -39,6 +38,10 @@
             left: 69%;
             transform: translate(-50%, -50%);
             text-align: start;
+            &-img:hover {
+                transform: scale(1.02);
+                transition-duration: 0.5s;
+            }
         }
 
     }

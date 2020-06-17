@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { NavbarMenu } from "../../../constants/routes";
 import { Route, Link } from "react-router-dom";
+import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import "./style.scss";
 interface INavMenu {
   id: any;
@@ -10,9 +11,21 @@ interface INavMenu {
   activeOnlyWhenExact: boolean;
   children: any;
 }
+const isBrowser = typeof window !== `undefined`
+
+
 const Index = () => {
   const owlClass = "navWrapper";
   const [showDropDown, setShowDropDown] = useState(-1);
+  const [bgNav,setBgNav] = useState('');
+  useScrollPosition(({ prevPos, currPos }) => {
+    if(currPos.y <= -100){
+      setBgNav('#151111')
+    }
+    if(currPos.y > -100){
+      setBgNav('')
+    }
+   })
   const scrollTop = () => {
     window.scrollTo({
       top: 0,
@@ -93,7 +106,7 @@ const Index = () => {
     return xhtml;
   };
   return (
-    <Navbar expand="lg" className={`${owlClass}`}>
+    <Navbar expand="lg" className={`${owlClass}`} style = {{background: bgNav, transition:'0.5s'}}>
       <Link
         to="/"
         className="d-flex justify-content-end align-items-center w-25"

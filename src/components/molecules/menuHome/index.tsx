@@ -28,13 +28,13 @@ const Index = () => {
         </Button>
       </Col>
       <Col md={6} className={`${owlClass}-col_right`}>
-        <Image className="w-50 p-3" src={menu_1} />
+        <Image className={`${owlClass}-col_right-img w-50 p-3`} src={menu_1} />
 
-        <Image className="w-50 p-3 pt-5" src={menu_2} />
+        <Image className={`${owlClass}-col_right-img w-50 p-3 pt-5`} src={menu_2} />
 
-        <Image className="w-50 p-3" src={menu_3} />
+        <Image className={`${owlClass}-col_right-img w-50 p-3`} src={menu_3} />
 
-        <Image className="w-50 p-3 pt-5" src={menu_4} />
+        <Image className={`${owlClass}-col_right-img w-50 p-3 pt-5`} src={menu_4} />
       </Col>
     </Row>
   );
