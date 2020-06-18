@@ -1,0 +1,45 @@
+@import '../../../commons/style.scss';
+.m-formAppointment {
+    margin: unset;
+    padding-top: 40px;
+    color:$white-color;
+    width: 80%;
+    &-row {
+        margin-bottom: 20px;
+        &-col {
+            // position: relative;
+            // &::before {
+            //     // content: url('../../../assets/images/about.jpg');
+            //     content: '';
+            //     width: 20px;
+            //     height: 20px;
+            //     position: absolute;
+            //     border:1px solid rgb(143, 228, 6);
+            // }
+            &-date {
+      
+                background-color: unset;
+                color:$white-color;
+                outline:none;
+                box-shadow: unset;
+                border: unset;
+                border-bottom: 1px solid $gray-color;
+                font-size:16px;
+
+            }
+            &-time {
+                .rc-time-picker-input {
+                    background-color: unset;
+                    color:$white-color;
+                    outline:none;
+                    box-shadow: unset;
+                    border: unset;
+                    border-bottom: 1px solid $gray-color;
+                    border-radius: unset;
+                    font-size:16px;
+                }
+
+            }
+        }
+    }
+}

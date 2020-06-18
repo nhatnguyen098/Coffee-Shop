@@ -1,5 +1,6 @@
 @import '../../../commons/style.scss';
 .navWrapper {
+    margin:unset;
     position: fixed;
     top:0;
     z-index: 9999;
@@ -16,7 +17,9 @@
         width: 100%;
         &-drop {
             color: $white-color !important;
-            
+            &:hover {
+                color: $brown-color !important;
+            }
         }
     }
 }

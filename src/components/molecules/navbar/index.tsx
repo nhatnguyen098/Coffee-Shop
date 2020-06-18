@@ -11,8 +11,6 @@ interface INavMenu {
   activeOnlyWhenExact: boolean;
   children: any;
 }
-const isBrowser = typeof window !== `undefined`
-
 
 const Index = () => {
   const owlClass = "navWrapper";

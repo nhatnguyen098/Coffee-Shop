@@ -7,6 +7,8 @@ const ProductList = lazy(() => import("../containers/productList"));
 const ProductDetail = lazy(() => import("../containers/productDetail"));
 const NotFound = lazy(() => import("../containers/notFound"));
 const UserProfile = lazy(() => import("../containers/userProfile"));
+const ServicesCoffee = lazy(() => import("../containers/serviceCoffee"));
+const Contact = lazy(() => import("../containers/contact"));
 interface IRoutes {
   match: any;
   history: any;
@@ -28,7 +30,7 @@ export const NavbarMenu = [
   {
     id: 2,
     path: "/product",
-    label: "Product",
+    label: "Coffee",
     exact: true,
     children: [],
     private:false,
@@ -40,6 +42,19 @@ export const NavbarMenu = [
   },
   {
     id: 3,
+    label:'Service',
+    path: "/services",
+    exact: true,
+    children: [],
+    private:false,
+    main: (routes: IRoutes) => (
+      <Suspense fallback={<Loading/>}>
+        <ServicesCoffee />
+      </Suspense>
+    ),
+  },
+  {
+    id: 4,
     path: "/about",
     label: "About",
     exact: true,
@@ -52,7 +67,33 @@ export const NavbarMenu = [
     ),
   },
   {
-    id: 4,
+    id: 5,
+    path: "/contact",
+    label: "Contact",
+    exact: true,
+    children: [],
+    private:false,
+    main: (routes: IRoutes) => (
+      <Suspense fallback={<Loading/>}>
+        <Contact />
+      </Suspense>
+    ),
+  },
+  {
+    id: 6,
+    label:'Login',
+    path: "/login",
+    exact: true,
+    children: [],
+    private:false,
+    main: (routes: IRoutes) => (
+      <Suspense fallback={<Loading/>}>
+        <LoginPage match={routes.match} history={routes.history} />
+      </Suspense>
+    ),
+  },
+  {
+    id: 7,
     path: "/product/:id",
     exact: true,
     children: [],
@@ -64,7 +105,7 @@ export const NavbarMenu = [
     ),
   },
   {
-    id: 5,
+    id: 8,
     path: "/userProfile",
     exact: true,
     children: [],
@@ -72,19 +113,6 @@ export const NavbarMenu = [
     main: (routes: IRoutes) => (
       <Suspense fallback={<Loading/>}>
         <UserProfile match = {routes.match} history = {routes.history}/>
-      </Suspense>
-    ),
-  },
-  {
-    id: 6,
-    label:'login',
-    path: "/login",
-    exact: true,
-    children: [],
-    private:false,
-    main: (routes: IRoutes) => (
-      <Suspense fallback={<Loading/>}>
-        <LoginPage match={routes.match} history={routes.history} />
       </Suspense>
     ),
   },

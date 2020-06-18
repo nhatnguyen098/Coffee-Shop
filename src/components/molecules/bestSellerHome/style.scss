@@ -1,0 +1,11 @@
+@import '../../../commons/style.scss';
+.m-bestSeller {
+    margin: unset;
+    color:$white-color;
+    padding: {
+        top:60px;
+        bottom:60px;
+        left:150px;
+        right:150px;
+    }
+}

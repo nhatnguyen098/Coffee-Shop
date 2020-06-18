@@ -1,0 +1,15 @@
+@import '../../../commons/style.scss';
+.m-gallery {
+    margin: unset;
+    padding:20px;
+    &-col {
+        padding:unset;
+        margin: unset;
+        &-img {
+            width:100%;
+            height: 300px;
+        }
+    }
+
+
+}

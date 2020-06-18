@@ -1,0 +1,12 @@
+@import '../../../commons/style.scss';
+.m-appointment {
+    margin:unset;
+    background-color: $black-color;
+    height: 500px;
+    padding: {
+        top:100px;
+        bottom:100px;
+        left: 50px;
+        right:50px;
+    }
+}
