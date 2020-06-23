@@ -1,0 +1,24 @@
+@import '../../../commons/style.scss';
+.m-feedback {
+    margin:unset;
+    height: 650px;
+    color:$white-color;
+    padding-top: 50px;
+    &-col {
+        padding: unset;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        &-wrapper {
+            width: 100%;
+            align-items: flex-end;
+            &-cmt {
+                padding:20px;
+                text-align: center;
+                height: 100%;
+                border:1px solid $brown-color;
+                background-color:$brown-color;
+            }
+        }
+    }
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import HomePage from '../../components/pages/homePage'
+import HomePage from '../../components/pages/homePage/homePage'
 // import {useDispatch,useSelector} from 'react-redux';
 // import {fetching_product} from '../../redux/actions/products'
 const Index = () => {

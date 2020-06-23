@@ -2,4 +2,10 @@
 .m-cardProduct {
     text-align: center;
     background-color: unset;
+    &:hover {
+        transform: scale(1.02);
+        transition: 0.5s;
+        border:1px solid $gray-color;
+        box-shadow: 1px $gray-color;
+    }
 }

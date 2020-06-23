@@ -1,5 +1,7 @@
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
 import 'firebase/auth';
+
  const fireBase = firebase.initializeApp({
     apiKey: process.env.REACT_APP_FIREBASE_KEY,
     authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
@@ -8,4 +10,5 @@ import 'firebase/auth';
     storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
     messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID
 })
+fireBase.firestore().settings({timestampsInSnapshots:true})
 export default fireBase

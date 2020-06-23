@@ -9,6 +9,7 @@ const NotFound = lazy(() => import("../containers/notFound"));
 const UserProfile = lazy(() => import("../containers/userProfile"));
 const ServicesCoffee = lazy(() => import("../containers/serviceCoffee"));
 const Contact = lazy(() => import("../containers/contact"));
+const SignUp = lazy(() => import("../containers/signUp"));
 interface IRoutes {
   match: any;
   history: any;
@@ -113,6 +114,19 @@ export const NavbarMenu = [
     main: (routes: IRoutes) => (
       <Suspense fallback={<Loading/>}>
         <UserProfile match = {routes.match} history = {routes.history}/>
+      </Suspense>
+    ),
+  },
+  {
+    id: 9,
+    path: "/SignUp",
+    label: 'SignUp',
+    exact: true,
+    children: [],
+    private:false,
+    main: (routes: IRoutes) => (
+      <Suspense fallback={<Loading/>}>
+        <SignUp/>
       </Suspense>
     ),
   },
