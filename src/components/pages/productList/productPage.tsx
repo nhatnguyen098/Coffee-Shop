@@ -3,7 +3,11 @@ import CardProduct from "../../molecules/cardProduct";
 import { Row, Col } from "react-bootstrap";
 import "./style.scss";
 import ButtonGroup from "../../molecules/buttonGroup";
-const productPage = () => {
+interface IProductList {
+  proList: [];
+  onGetProId: (id:any) => void
+}
+const ProductPage:React.FC<IProductList> = ({proList,onGetProId}) => {
   const owlClass = "o-productList";
   return (
     <section className={owlClass} style={{ margin: "unset" }}>
@@ -12,21 +16,16 @@ const productPage = () => {
       </div>
 
       <Row style={{ marginTop: "100px" }}>
-        <Col>
-          <CardProduct />
-        </Col>
-        <Col>
-          <CardProduct />
-        </Col>
-        <Col>
-          <CardProduct />
-        </Col>
-        <Col>
-          <CardProduct />
-        </Col>
+        {proList.map((item: any, index: number) => {
+          return (
+            <Col key = {index} md = {3} style = {{marginBottom: '15px'}}>
+              <CardProduct data = {item} getIdToDetail = {(val) => onGetProId(val)}/>
+            </Col>
+          );
+        })}
       </Row>
     </section>
   );
 };
 
-export default productPage;
+export default ProductPage;

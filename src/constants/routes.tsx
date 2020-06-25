@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import Loading from '../components/atoms/loading'
+import Loading from "../components/atoms/loading";
 const HomePage = lazy(() => import("../containers/home"));
 // const LoginPage = lazy(() => import("../containers/login"));
 const AboutPage = lazy(() => import("../containers/about"));
@@ -19,11 +19,11 @@ export const NavbarMenu = [
     id: 1,
     path: "/",
     label: "Home",
-    exact: true,
+    activeOnlyWhenExact: true,
     children: [],
-    private:false,
+    private: false,
     main: () => (
-      <Suspense fallback={<Loading/>}>
+      <Suspense fallback={<Loading />}>
         <HomePage />
       </Suspense>
     ),
@@ -32,24 +32,24 @@ export const NavbarMenu = [
     id: 2,
     path: "/product",
     label: "Coffee",
-    exact: true,
+    activeOnlyWhenExact: true,
     children: [],
-    private:false,
+    private: false,
     main: (routes: IRoutes) => (
-      <Suspense fallback={<Loading/>}>
-        <ProductList  />
+      <Suspense fallback={<Loading />}>
+        <ProductList />
       </Suspense>
     ),
   },
   {
     id: 3,
-    label:'Service',
+    label: "Service",
     path: "/services",
-    exact: true,
+    activeOnlyWhenExact: true,
     children: [],
-    private:false,
+    private: false,
     main: (routes: IRoutes) => (
-      <Suspense fallback={<Loading/>}>
+      <Suspense fallback={<Loading />}>
         <ServicesCoffee />
       </Suspense>
     ),
@@ -58,11 +58,11 @@ export const NavbarMenu = [
     id: 4,
     path: "/about",
     label: "About",
-    exact: true,
+    activeOnlyWhenExact: true,
     children: [],
-    private:false,
+    private: false,
     main: (routes: IRoutes) => (
-      <Suspense fallback={<Loading/>}>
+      <Suspense fallback={<Loading />}>
         <AboutPage />
       </Suspense>
     ),
@@ -71,11 +71,11 @@ export const NavbarMenu = [
     id: 5,
     path: "/contact",
     label: "Contact",
-    exact: true,
+    activeOnlyWhenExact: true,
     children: [],
-    private:false,
+    private: false,
     main: (routes: IRoutes) => (
-      <Suspense fallback={<Loading/>}>
+      <Suspense fallback={<Loading />}>
         <Contact />
       </Suspense>
     ),
@@ -96,48 +96,35 @@ export const NavbarMenu = [
   {
     id: 7,
     path: "/product/:id",
-    exact: true,
+    activeOnlyWhenExact: true,
     children: [],
-    private:false,
+    private: false,
     main: (routes: IRoutes) => (
-      <Suspense fallback={<Loading/>}>
-        <ProductDetail />
+      <Suspense fallback={<Loading />}>
+        <ProductDetail match = {routes.match}/>
       </Suspense>
     ),
   },
   {
     id: 8,
     path: "/userProfile",
-    exact: true,
+    activeOnlyWhenExact: true,
     children: [],
-    private:true,
+    private: true,
     main: (routes: IRoutes) => (
-      <Suspense fallback={<Loading/>}>
-        <UserProfile match = {routes.match} history = {routes.history}/>
+      <Suspense fallback={<Loading />}>
+        <UserProfile match={routes.match} history={routes.history} />
       </Suspense>
     ),
   },
-  // {
-  //   id: 9,
-  //   path: "/SignUp",
-  //   label: 'SignUp',
-  //   exact: true,
-  //   children: [],
-  //   private:false,
-  //   main: (routes: IRoutes) => (
-  //     <Suspense fallback={<Loading/>}>
-  //       <SignUp/>
-  //     </Suspense>
-  //   ),
-  // },
   {
     id: -1,
     path: "",
-    exact: false,
+    activeOnlyWhenExact: false,
     children: [],
-    private:false,
+    private: false,
     main: () => (
-      <Suspense fallback={<Loading/>}>
+      <Suspense fallback={<Loading />}>
         <NotFound />
       </Suspense>
     ),

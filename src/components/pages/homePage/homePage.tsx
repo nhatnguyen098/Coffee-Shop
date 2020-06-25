@@ -8,8 +8,11 @@ import BestSellerHome from "../../molecules/bestSellerHome";
 import Gallery from "../../molecules/gallery";
 import Appointment from "../../molecules/appointment";
 import Feedback from "../../molecules/feedbackHome";
-
-const HomePage = () => {
+interface IProductData {
+  loading: boolean;
+  data: any;
+}
+const HomePage: React.FC<IProductData> = ({data,loading}) => {
   return (
     <section style={{ paddingTop: "10px" }}>
       <ContactInfo />
@@ -17,7 +20,7 @@ const HomePage = () => {
       <ServiceInfo />
       <MenuHome />
       <CounterHome />
-      <BestSellerHome />
+      <BestSellerHome proData = {data.slice(0,4)}/>
       <Gallery />
       <Appointment />
       <Feedback />

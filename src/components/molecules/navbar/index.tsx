@@ -14,11 +14,13 @@ import ModalUser from "../modalUser";
 import { useSelector } from "react-redux";
 import "./style.scss";
 interface INavMenu {
-  id: any;
+  id: number;
   label: string;
   path: string;
   activeOnlyWhenExact: boolean;
   children: any;
+  private: boolean;
+  main: () => void
 }
 
 const popover = (
@@ -56,9 +58,9 @@ const Index = () => {
     }
   });
 
-  const scrollTop = () => {
+  const scrollTop = (id:number) => {
     window.scrollTo({
-      top: 0,
+      top: id === 1 ? 0 : 800,
       behavior: "smooth",
     });
   };
@@ -88,9 +90,9 @@ const Index = () => {
           {children.map((child: any, index: number) => {
             return (
               <Link
-                className={`${owlClass}-nav-drop-item nav-link`}
+                className={`${owlClass}-nav-drop-item nav-link ${className}`}
                 key={index}
-                onClick={() => scrollTop()}
+                onClick={() => scrollTop(child.id)}
                 to={child.path}
               >
                 {child.childLabel}
@@ -103,10 +105,10 @@ const Index = () => {
         <Link
           key={id}
           className={`${owlClass}-nav-drop ml-3 mr-3 nav-link ${className}`}
-          onClick={() => scrollTop()}
+          onClick={() => scrollTop(id)}
           to={path}
         >
-          {label}
+          <strong>{label}</strong>
           <span className="sr-only">(current)</span>
         </Link>
       );
@@ -127,7 +129,7 @@ const Index = () => {
                 <RenderNavItem
                   key={index}
                   menuItem={item}
-                  className={match === item.id ? "active" : ""}
+                  className={match ? "active" : ""}
                 />
               )}
             />
@@ -146,6 +148,7 @@ const Index = () => {
         to="/"
         className="d-flex justify-content-end align-items-center w-25"
         style={{ textDecoration: "unset" }}
+        onClick = {() => scrollTop(1)}
       >
         {" "}
         <Navbar.Brand style={{ color: "white" }}>Coffee Home</Navbar.Brand>

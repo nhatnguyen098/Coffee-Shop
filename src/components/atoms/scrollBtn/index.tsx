@@ -1,7 +1,7 @@
 import React from 'react'
 import { AiFillUpCircle } from "react-icons/ai";
 import { animateScroll as scroll} from 'react-scroll'
-const index = () => {
+const Index = () => {
     return  <AiFillUpCircle
     className="icon-nav"
     color="#c49b63"
@@ -11,4 +11,4 @@ const index = () => {
   />
 }
 
-export default index
+export default Index

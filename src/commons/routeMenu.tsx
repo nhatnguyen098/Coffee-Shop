@@ -9,14 +9,14 @@ export const mapRouteMenu = (val:any) => {
         <Route
           key={index}
           path={item.path}
-          exact={item.exact}
+          exact={item.activeOnlyWhenExact}
           component={item.main}
         />
       ) : (
         <PrivateRoute
           key={index}
           path={item.path}
-          exact={item.exact}
+          exact={item.activeOnlyWhenExact}
           component={item.main}
         />
       );

@@ -16,11 +16,15 @@
         justify-content: center;
         align-items: center;
         width: 100%;
+        font-weight: 500;
         &-drop {
             color: $white-color !important;
             &:hover {
                 color: $brown-color !important;
             }
+        }
+        .active {
+            color: $brown-color !important;
         }
     }
 }

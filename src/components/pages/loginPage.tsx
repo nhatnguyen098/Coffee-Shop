@@ -31,7 +31,7 @@ const LoginPage: React.FC<ILogin> = ({ onSubmitForm }) => {
       register(inputRef.current)
       inputRef.current.focus()
     }
-  }, [])
+  }, [register])
   return (
     <Form onSubmit={onSubmit}>
       <Form.Group controlId="formBasicEmailLogin">

@@ -10,13 +10,17 @@ interface LayoutProps {
   auth?: boolean;
   className?: string;
 }
+
 const Layout: React.FC<LayoutProps> = ({ children }): JSX.Element => {
   const proError = useSelector((state: any) => state.products.error);
   const userError = useSelector((state: any) => state.users.error);
+  const scrollToRef = (ref:any) => window.scrollTo({top:ref.current.offsetTop,behavior:'smooth'})
+  const myRef = React.useRef(null)
   React.useEffect(() => {
     toastError(proError);
     toastError(userError);
   }, [proError, userError]);
+  React.useEffect(() => scrollToRef(myRef),[])
   return (
     <section
       style={{
@@ -24,7 +28,7 @@ const Layout: React.FC<LayoutProps> = ({ children }): JSX.Element => {
       }}
     >
       <Header />
-      <Container fluid style={{ padding: 0, margin: 0 }}>
+      <Container fluid style={{ padding: 0, margin: 0 }} ref={myRef}>
         {children}
       </Container>
       <Footer />

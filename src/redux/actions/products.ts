@@ -5,6 +5,9 @@ import {
   ADD_NEW_PRODUCT,
   ADD_NEW_PRODUCT_SUCCESS,
   ADD_NEW_PRODUCT_ERROR,
+  FETCHING_PRODUCT_BY_ID,
+  FETCHING_PRODUCT_BY_ID_SUCCESS,
+  FETCHING_PRODUCT_BY_ID_ERROR
 } from "./../../constants/actionTypes/productType";
 
 export const fetching_product = () => {
@@ -47,3 +50,24 @@ export const add_new_product_error = (error: any) => {
         error
     }
 };
+
+export const fetching_pro_by_id = (id:number) => {
+  return {
+    type : FETCHING_PRODUCT_BY_ID,
+    id
+  }
+}
+
+export const fetching_pro_by_id_success = (data:any) => {
+  return {
+    type : FETCHING_PRODUCT_BY_ID_SUCCESS,
+    data
+  }
+}
+
+export const fetching_pro_by_id_error = (error:any) => {
+  return {
+    type : FETCHING_PRODUCT_BY_ID_ERROR,
+    error
+  }
+}
