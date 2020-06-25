@@ -11,13 +11,17 @@ interface LayoutProps {
   className?: string;
 }
 const Layout: React.FC<LayoutProps> = ({ children }): JSX.Element => {
-  const { error } = useSelector((state: any) => state.products);
+  const proError = useSelector((state: any) => state.products.error);
+  const userError = useSelector((state: any) => state.users.error);
   React.useEffect(() => {
-    toastError(error);
-  }, [error]);
+    toastError(proError);
+    toastError(userError);
+  }, [proError, userError]);
   return (
     <section
-      style={{ background: `url(${bg_4})` }}
+      style={{
+        background: `url(${bg_4})`,
+      }}
     >
       <Header />
       <Container fluid style={{ padding: 0, margin: 0 }}>

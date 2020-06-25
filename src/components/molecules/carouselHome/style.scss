@@ -1,6 +1,7 @@
 @import '../../../commons//style.scss';
 
 .carousel {
+    z-index: 1;
     &-item {
         &-img {
             &:hover {

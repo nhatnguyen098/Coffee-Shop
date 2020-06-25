@@ -10,7 +10,7 @@ import {
 let initState = {
   data: {
     email: null,
-    token: null,
+    token: localStorage.getItem('token') ? localStorage.getItem('token') : null,
   },
   loading: false,
   error: null,

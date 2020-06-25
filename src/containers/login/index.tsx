@@ -2,24 +2,30 @@ import React from 'react'
 import LoginPage from '../../components/pages/loginPage'
 import {fetching_user} from '../../redux/actions/users'
 import {useDispatch,useSelector} from 'react-redux'
+import {useHistory} from 'react-router-dom'
 interface ILogin {
     match?: any
     history?: any
     state?: any
 }
-const Index:React.FC<ILogin> = ({match,history}) => {
+const Index:React.FC<ILogin> = ({match}) => {
     const dispatch = useDispatch()
     const {token} = useSelector((state:any) => state.users.data)
+    let history = useHistory();
     React.useEffect(() => {
         if(token !== null) {
             if(history.location.state !== undefined) {
-                history.push(history.location.state.from.pathname)
+                const {from} : any = history.location.state
+                history.push(from.pathname)
             }else {
                 history.push('/')
             }
         }
     },[token,history])
-    return <LoginPage onSubmitForm = {(val) => dispatch(fetching_user(val))}/>
+    const onSubmitForm = (val:any) => {
+        dispatch(fetching_user(val))
+    }
+    return <LoginPage onSubmitForm = {(val) => onSubmitForm(val)}/>
 }
 
 export default Index

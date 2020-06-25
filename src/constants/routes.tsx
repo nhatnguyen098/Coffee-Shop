@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import Loading from '../components/atoms/loading'
 const HomePage = lazy(() => import("../containers/home"));
-const LoginPage = lazy(() => import("../containers/login"));
+// const LoginPage = lazy(() => import("../containers/login"));
 const AboutPage = lazy(() => import("../containers/about"));
 const ProductList = lazy(() => import("../containers/productList"));
 const ProductDetail = lazy(() => import("../containers/productDetail"));
@@ -9,7 +9,7 @@ const NotFound = lazy(() => import("../containers/notFound"));
 const UserProfile = lazy(() => import("../containers/userProfile"));
 const ServicesCoffee = lazy(() => import("../containers/serviceCoffee"));
 const Contact = lazy(() => import("../containers/contact"));
-const SignUp = lazy(() => import("../containers/signUp"));
+// const SignUp = lazy(() => import("../containers/signUp"));
 interface IRoutes {
   match: any;
   history: any;
@@ -80,19 +80,19 @@ export const NavbarMenu = [
       </Suspense>
     ),
   },
-  {
-    id: 6,
-    label:'Login',
-    path: "/login",
-    exact: true,
-    children: [],
-    private:false,
-    main: (routes: IRoutes) => (
-      <Suspense fallback={<Loading/>}>
-        <LoginPage match={routes.match} history={routes.history} />
-      </Suspense>
-    ),
-  },
+  // {
+  //   id: 6,
+  //   label:'Login',
+  //   path: "/login",
+  //   exact: true,
+  //   children: [],
+  //   private:false,
+  //   main: (routes: IRoutes) => (
+  //     <Suspense fallback={<Loading/>}>
+  //       <LoginPage match={routes.match} history={routes.history} />
+  //     </Suspense>
+  //   ),
+  // },
   {
     id: 7,
     path: "/product/:id",
@@ -117,19 +117,19 @@ export const NavbarMenu = [
       </Suspense>
     ),
   },
-  {
-    id: 9,
-    path: "/SignUp",
-    label: 'SignUp',
-    exact: true,
-    children: [],
-    private:false,
-    main: (routes: IRoutes) => (
-      <Suspense fallback={<Loading/>}>
-        <SignUp/>
-      </Suspense>
-    ),
-  },
+  // {
+  //   id: 9,
+  //   path: "/SignUp",
+  //   label: 'SignUp',
+  //   exact: true,
+  //   children: [],
+  //   private:false,
+  //   main: (routes: IRoutes) => (
+  //     <Suspense fallback={<Loading/>}>
+  //       <SignUp/>
+  //     </Suspense>
+  //   ),
+  // },
   {
     id: -1,
     path: "",

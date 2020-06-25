@@ -13,13 +13,15 @@ const schema = Yup.object().shape({
 });
 
 interface IForm {
+  name: string;
+  phoneNumber: string;
   email: string;
   password: string;
 }
-interface ILogin {
+interface ISignUp {
   onSubmitForm?: (val: any) => void;
 }
-const Index: React.FC<ILogin> = ({ onSubmitForm }) => {
+const Index: React.FC<ISignUp> = ({ onSubmitForm }) => {
   const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm<IForm>({
     validationSchema: schema,

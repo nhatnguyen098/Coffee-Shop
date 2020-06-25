@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useRef,useEffect} from "react";
 import { useForm } from "react-hook-form";
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
+import Button from "../atoms/buttons";
 import * as Yup from "yup";
 const schema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -18,29 +19,35 @@ interface ILogin {
   onSubmitForm: (val: any) => void;
 }
 const LoginPage: React.FC<ILogin> = ({ onSubmitForm }) => {
-  const { register, handleSubmit, errors } = useForm<IForm>({
+  const inputRef = useRef<HTMLInputElement>(null)
+  const { register, handleSubmit,reset, errors } = useForm<IForm>({
     validationSchema: schema,
   });
-  const onSubmit = handleSubmit(({ email, password }) =>
-    onSubmitForm({ email, password })
-  );
-
+  const onSubmit = handleSubmit(({ email, password }) => {
+    onSubmitForm({ email, password });
+  });
+  useEffect(() => {
+    if (inputRef.current) {
+      register(inputRef.current)
+      inputRef.current.focus()
+    }
+  }, [])
   return (
     <Form onSubmit={onSubmit}>
-      <Form.Group controlId="formBasicEmail">
+      <Form.Group controlId="formBasicEmailLogin">
         <Form.Label>Email address:</Form.Label>
         <Form.Control
           name="email"
           type="email"
           placeholder="Enter email"
-          ref={register}
+          ref={inputRef}
         />
         {errors.email && (
           <Form.Text className="text-danger">{errors.email.message}</Form.Text>
         )}
       </Form.Group>
 
-      <Form.Group controlId="formBasicPassword">
+      <Form.Group controlId="formBasicPasswordLogin">
         <Form.Label>Password:</Form.Label>
         <Form.Control
           name="password"
@@ -54,11 +61,26 @@ const LoginPage: React.FC<ILogin> = ({ onSubmitForm }) => {
           </Form.Text>
         )}
       </Form.Group>
-      <Form.Group controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
+      <Form.Group controlId="formBasicCheckboxLogin">
+        <Form.Check type="checkbox" label="Check me out"/>
       </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
+      <Button
+        className="m-1"
+        hover={true}
+        background="#c49b63"
+        color="white"
+        onClick={() => onSubmit()}
+      >
+        Sign In
+      </Button>
+      <Button
+        className="m-1"
+        hover={true}
+        background="unset"
+        color="white"
+        onClick={() => reset()}
+      >
+        Cancel
       </Button>
     </Form>
   );

@@ -1,8 +1,17 @@
 import React, { useState } from "react";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import {
+  Navbar,
+  Nav,
+  NavDropdown,
+  OverlayTrigger,
+  Popover,
+} from "react-bootstrap";
 import { NavbarMenu } from "../../../constants/routes";
 import { Route, Link } from "react-router-dom";
-import { useScrollPosition } from '@n8tb1t/use-scroll-position'
+import { useScrollPosition } from "@n8tb1t/use-scroll-position";
+import { FaUserCircle } from "react-icons/fa";
+import ModalUser from "../modalUser";
+import { useSelector } from "react-redux";
 import "./style.scss";
 interface INavMenu {
   id: any;
@@ -12,24 +21,48 @@ interface INavMenu {
   children: any;
 }
 
+const popover = (
+  <Popover
+    style={{ backgroundColor: `#c49b63`, color: "black" }}
+    id="popover-basic"
+  >
+    <Popover.Title
+      className="text-center"
+      style={{ backgroundColor: `#c49b63` }}
+      as="h3"
+    >
+      <strong>User Profile</strong>
+    </Popover.Title>
+    <Popover.Content style={{ color: "black" }}>
+      And here's some <strong>amazing</strong> content. It's very engaging.
+      right?
+    </Popover.Content>
+  </Popover>
+);
+
 const Index = () => {
   const owlClass = "navWrapper";
   const [showDropDown, setShowDropDown] = useState(-1);
-  const [bgNav,setBgNav] = useState('');
+  const [bgNav, setBgNav] = useState("");
+  const [modalShow, setModalShow] = useState<boolean>(false);
+  const { token } = useSelector((state: any) => state.users.data);
+
   useScrollPosition(({ prevPos, currPos }) => {
-    if(currPos.y <= -100){
-      setBgNav('#151111')
+    if (currPos.y <= -100) {
+      setBgNav("#151111");
     }
-    if(currPos.y > -100){
-      setBgNav('')
+    if (currPos.y > -100) {
+      setBgNav("");
     }
-   })
+  });
+
   const scrollTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
+
   const RenderNavItem = ({
     menuItem,
     className,
@@ -104,7 +137,11 @@ const Index = () => {
     return xhtml;
   };
   return (
-    <Navbar expand="lg" className={`${owlClass}`} style = {{background: bgNav, transition:'0.5s'}}>
+    <Navbar
+      expand="lg"
+      className={`${owlClass}`}
+      style={{ background: bgNav, transition: "0.5s" }}
+    >
       <Link
         to="/"
         className="d-flex justify-content-end align-items-center w-25"
@@ -117,6 +154,22 @@ const Index = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className={`${owlClass}-nav mr-auto`}>
           {mapContentRoutes(NavbarMenu)}
+          <Nav.Item>
+            {token ? (
+              <OverlayTrigger
+                trigger="click"
+                placement="bottom"
+                overlay={popover}
+              >
+                <FaUserCircle size="1.5em" color="white" />
+              </OverlayTrigger>
+            ) : (
+              <Nav.Link onClick={() => setModalShow(true)}>
+                <FaUserCircle size="1.5em" color="white" />
+              </Nav.Link>
+            )}
+            <ModalUser show={modalShow} onHide={() => setModalShow(false)} />
+          </Nav.Item>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

@@ -1,10 +1,11 @@
 @import '../../../commons/style.scss';
 .navWrapper {
-    margin:unset;
+    margin:0;
     position: fixed;
+    z-index: 2;
     top:0;
-    z-index: 9999;
-    width: 100%;
+    right: 0;
+    left: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: {
         top: 20px;

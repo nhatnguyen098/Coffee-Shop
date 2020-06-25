@@ -1,0 +1,26 @@
+@import '../../../commons/style.scss';
+
+.m-modalUser {
+    .modal-content {
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        height: 500px;
+        .navbar-nav {
+            .nav-link {
+                color: $white-color;
+                margin-bottom: 15px;
+                text-align: center;
+            }
+    
+            .active {
+                background-color: $brown-color;
+                &:focus {
+                    outline: unset !important;
+                    box-shadow: unset !important;
+                    border:unset !important;
+                }
+            }
+        }
+
+    }
+}

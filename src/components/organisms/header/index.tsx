@@ -3,10 +3,10 @@ import Navbar from "../../molecules/navbar";
 import Carousel from "../../molecules/carouselHome";
 const Index = () => {
   return (
-    <React.Fragment>
+    <section style = {{position:'relative'}}>
       <Navbar />
       <Carousel />
-    </React.Fragment>
+    </section>
   );
 };
 

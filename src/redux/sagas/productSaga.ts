@@ -1,6 +1,6 @@
 import { all, call, takeLatest, put } from "redux-saga/effects";
 import {FETCHING_PRODUCT,ADD_NEW_PRODUCT} from '../../constants/actionTypes/productType'
-import {fetching_product_success,fetching_product_error,add_new_product,add_new_product_success,add_new_product_error} from '../actions/products'
+import {fetching_product_success,fetching_product_error,add_new_product_success,add_new_product_error} from '../actions/products'
 import {getProListAPI,postProductAPI} from '../../services/productService'
 
 function* getProductSaga() {
