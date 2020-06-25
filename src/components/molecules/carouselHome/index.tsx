@@ -64,7 +64,11 @@ const Index: React.FC<ICarousel> = ({ arrCarousel }) => {
     });
     return rs;
   };
-  return <Carousel className={owlClass}>{mapItemToCarousel(arr)}</Carousel>;
+  return (
+    <Carousel className={owlClass}>
+      {mapItemToCarousel(arr)}
+    </Carousel>
+  );
 };
 
 export default Index;

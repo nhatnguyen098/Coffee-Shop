@@ -45,16 +45,16 @@ const popover = (
 const Index = () => {
   const owlClass = "navWrapper";
   const [showDropDown, setShowDropDown] = useState(-1);
-  const [bgNav, setBgNav] = useState("");
+  const [bgNav, setBgNav] = useState<boolean>(false);
   const [modalShow, setModalShow] = useState<boolean>(false);
   const { token } = useSelector((state: any) => state.users.data);
 
   useScrollPosition(({ prevPos, currPos }) => {
     if (currPos.y <= -100) {
-      setBgNav("#151111");
+      setBgNav(true);
     }
     if (currPos.y > -100) {
-      setBgNav("");
+      setBgNav(false);
     }
   });
 
@@ -142,7 +142,7 @@ const Index = () => {
     <Navbar
       expand="lg"
       className={`${owlClass}`}
-      style={{ background: bgNav, transition: "0.5s" }}
+      style={{ backgroundColor: bgNav ? '#151111' : 'unset',transition: "0.5s" }}
     >
       <Link
         to="/"
@@ -168,7 +168,7 @@ const Index = () => {
               </OverlayTrigger>
             ) : (
               <Nav.Link onClick={() => setModalShow(true)}>
-                <FaUserCircle size="1.5em" color="white" />
+                <FaUserCircle size="1.5em" color="white" className = {`${owlClass}-nav-icon`}/>
               </Nav.Link>
             )}
             <ModalUser show={modalShow} onHide={() => setModalShow(false)} />

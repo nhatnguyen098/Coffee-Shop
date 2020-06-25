@@ -9,6 +9,8 @@ interface IButton {
   hover?: boolean;
   size?: string;
   border?: string;
+  width?: any;
+  height?: any;
 }
 const Index: React.FC<IButton> = ({
   className,
@@ -19,11 +21,13 @@ const Index: React.FC<IButton> = ({
   hover,
   size,
   border,
+  width,
+  height
 }) => {
   return (
     <Button
       className={`${className} ${hover && 'activeHover'}`}
-      style={{border: border ,fontSize: size, color: color, backgroundColor: background, borderColor: background}}
+      style={{width: width, height: height, border: border ,fontSize: size, color: color, backgroundColor: background, borderColor: background}}
       onClick={onClick}
     >
       {children}

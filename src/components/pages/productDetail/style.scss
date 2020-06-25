@@ -1,0 +1,14 @@
+.p-productDetail {
+    // height: auto;
+    padding: {
+        top:150px;
+        bottom:150px;
+        left: 300px;
+        right:300px;
+    }
+    &-row {
+        &-col {
+            color: white;
+        }
+    }
+}
