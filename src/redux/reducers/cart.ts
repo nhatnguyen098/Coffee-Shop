@@ -9,7 +9,7 @@ import {
   DELETE_CART_SUCCESS,
   DELETE_CART_ERROR,
 } from "./../../constants/actionTypes/cartType";
-
+import { toastSuccess } from "../../helpers/toastHelper";
 let initState = {
   data: [],
   loading: false,
@@ -31,11 +31,12 @@ export default (state = initState, action: any) => {
     case ADD_CART:
       return { ...state, loading: true };
     case ADD_CART_SUCCESS:
+      toastSuccess("Add Cart Successful.!");
       return { ...state, loading: false, data: action.data, error: null };
     case ADD_CART_ERROR:
       return { ...state, loading: false, data: [], error: action.error };
     case DELETE_CART:
-      return { ...state, loading: true};
+      return { ...state, loading: true };
     case DELETE_CART_SUCCESS:
       return { ...state, loading: false, data: action.data, error: null };
     case DELETE_CART_ERROR:

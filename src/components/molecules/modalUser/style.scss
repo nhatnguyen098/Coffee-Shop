@@ -1,6 +1,7 @@
 @import '../../../commons/style.scss';
 
 .m-modalUser {
+    padding-left: unset !important;
     .modal-content {
         background: rgba(0, 0, 0, 0.5);
         color: white;

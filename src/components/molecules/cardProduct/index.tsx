@@ -17,7 +17,7 @@ const Index:React.FC<ICardProduct> = ({ data,getIdToDetail }) => {
         <Card.Text>{data.description}</Card.Text>
         <Card.Text>${data.price}</Card.Text>
         <Button onClick = {() => getIdToDetail(data.id)} className="m-1" hover={true} background="#c49b63" color="white">
-          Add to Cart
+          View Detail
         </Button>
       </Card.Body>
     </Card>

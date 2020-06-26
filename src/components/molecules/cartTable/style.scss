@@ -1,0 +1,27 @@
+@import '../../../commons/style.scss';
+.m-cartTable {
+    margin:unset;
+    padding: 100px 100px 100px 100px;
+    &-col {
+        &-table {
+            &-title {
+                background-color: $brown-color;
+                text-align: center;
+                color:$white-color;
+            }
+            &-body {
+                color: $gray-color;
+                text-align: center;
+                &-tr {
+                    &:hover {
+                        transform: scale(1.01);
+                        transition: 0.5s;
+                        border: 1px solid gray;
+                    }
+                }
+            }
+        }
+    }
+
+
+}
