@@ -10,7 +10,7 @@ const Index: React.FC<IProDetail> = ({ data, onAddToCart }) => {
   const owlClass = "p-productDetail";
   const [productItem, setProductItem] = useState({
     id: null,
-    name: '',
+    name: "",
     size: "Medium",
     quantity: 1,
     price: 0,
@@ -20,9 +20,10 @@ const Index: React.FC<IProDetail> = ({ data, onAddToCart }) => {
   useEffect(() => {
     data &&
       setProductItem({
-        ...productItem,
         id: data.id,
-        name:data.name,
+        name: data.name,
+        size: "Medium",
+        quantity: 1,
         price: data.price,
         urlImage: data.urlImage,
         description: data.description,
@@ -47,7 +48,7 @@ const Index: React.FC<IProDetail> = ({ data, onAddToCart }) => {
                   <h2>{data.name}</h2>
                 </Card.Title>
                 <Card.Text style={{ color: "#c49b63" }}>
-                  <h3>${data.price}</h3>
+                  ${data.price}
                 </Card.Text>
                 <Card.Text style={{ color: "gray" }}>
                   {data.description}
