@@ -1,13 +1,33 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col, Card, Form } from "react-bootstrap";
 import Button from "../../atoms/buttons";
 import "./style.scss";
 interface IProDetail {
   data: any;
+  onAddToCart: (item: any) => void;
 }
-const Index: React.FC<IProDetail> = ({ data }) => {
+const Index: React.FC<IProDetail> = ({ data, onAddToCart }) => {
   const owlClass = "p-productDetail";
-  const [count,setCount] = useState<number>(1)
+  const [productItem, setProductItem] = useState({
+    id: null,
+    name: '',
+    size: "Medium",
+    quantity: 1,
+    price: 0,
+    urlImage: "",
+    description: "",
+  });
+  useEffect(() => {
+    data &&
+      setProductItem({
+        ...productItem,
+        id: data.id,
+        name:data.name,
+        price: data.price,
+        urlImage: data.urlImage,
+        description: data.description,
+      });
+  }, [data]);
   return (
     <React.Fragment>
       {data ? (
@@ -45,8 +65,11 @@ const Index: React.FC<IProDetail> = ({ data }) => {
                     turn around and return to its own, safe country.
                   </p>
                 </Card.Text>
-                <Form>
-                  <Form.Group controlId="exampleForm.ControlSelect1" className = "mb-5 mt-5">
+                <Form style={{ width: "60%" }}>
+                  <Form.Group
+                    controlId="exampleForm.ControlSelect1"
+                    className="mb-5 mt-5"
+                  >
                     <Form.Control
                       as="select"
                       style={{
@@ -55,52 +78,73 @@ const Index: React.FC<IProDetail> = ({ data }) => {
                         border: "1px solid rgba(255, 255, 255, 0.1)",
                         boxShadow: "unset",
                       }}
+                      defaultValue={productItem.size}
+                      onChange={(e: any) =>
+                        setProductItem({ ...productItem, size: e.target.value })
+                      }
                     >
-                      <option>Medium</option>
-                      <option>Large</option>
+                      <option value="Medium">Medium</option>
+                      <option value="Large">Large</option>
                     </Form.Control>
                   </Form.Group>
-                  <Row className = 'mt-5 mb-5'>
+                  <Row className="mt-5 mb-5">
                     <Col md={3}>
                       <Button
                         className=""
                         hover={true}
                         background="unset"
                         color="white"
-                        width = "58px"
-                        height = "58px"
-                        onClick = {() => count > 1 && setCount(count-1)}
+                        width="58px"
+                        height="58px"
+                        onClick={() =>
+                          productItem.quantity > 1 &&
+                          setProductItem({
+                            ...productItem,
+                            quantity: productItem.quantity - 1,
+                          })
+                        }
                       >
                         <span style={{ fontSize: "20px" }}>-</span>
                       </Button>
                     </Col>
-                    <Col md={6} className = "d-flex justify-content-center align-items-center" style = {{border:'1px solid #c49b63'}}>
-                      {count}
+                    <Col
+                      md={6}
+                      className="d-flex justify-content-center align-items-center"
+                      style={{ border: "1px solid #c49b63" }}
+                    >
+                      {productItem.quantity}
                     </Col>
-                    <Col md={3} className = "text-right">
-                    <Button
+                    <Col md={3} className="text-right">
+                      <Button
                         className=""
                         hover={true}
                         background="unset"
                         color="white"
-                        width = "58px"
-                        height = "58px"
-                        onClick = {() => count < 99 && setCount(count+1)}
+                        width="58px"
+                        height="58px"
+                        onClick={() =>
+                          productItem.quantity < 99 &&
+                          setProductItem({
+                            ...productItem,
+                            quantity: productItem.quantity + 1,
+                          })
+                        }
                       >
                         <span style={{ fontSize: "20px" }}>+</span>
                       </Button>
                     </Col>
                   </Row>
                   <Button
-                        className="m-1"
-                        hover={true}
-                        background="#c49b63"
-                        color="white"
-                        width = "100%"
-                        height = "50px"
-                      >
-                        Add To Card
-                      </Button>
+                    className="m-1"
+                    hover={true}
+                    background="#c49b63"
+                    color="white"
+                    width="100%"
+                    height="50px"
+                    onClick={() => onAddToCart(productItem)}
+                  >
+                    Add To Card
+                  </Button>
                 </Form>
               </Card.Body>
             </Col>

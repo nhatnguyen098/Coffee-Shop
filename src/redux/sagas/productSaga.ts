@@ -28,7 +28,6 @@ function* postProductSaga(action:any) {
 
     try {
         const data = yield call(postProductAPI,action.data);
-        console.log(data)
         yield put(add_new_product_success(data));
     } catch (error) {
         yield put(add_new_product_error(error));

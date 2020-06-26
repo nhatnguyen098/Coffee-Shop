@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import CardProduct from "../cardProduct";
 import "./style.scss";
-const Index = ({ proData }: any) => {
+const Index = ({ proData, getIdToDetail }: any) => {
   const owlClass = "m-bestSeller";
   return (
     <Row className={owlClass}>
@@ -13,7 +13,7 @@ const Index = ({ proData }: any) => {
           <Col md = {3} key={i} style = {{marginBottom: '15px'}}>
             <CardProduct
               data={item}
-              getIdToDetail={(val) => console.log(val)}
+              getIdToDetail={(val) => getIdToDetail(val)}
             />
           </Col>
         );

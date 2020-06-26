@@ -11,8 +11,9 @@ import Feedback from "../../molecules/feedbackHome";
 interface IProductData {
   loading: boolean;
   data: any;
+  getIdToDetail: (val:any) => void
 }
-const HomePage: React.FC<IProductData> = ({data,loading}) => {
+const HomePage: React.FC<IProductData> = ({data,loading,getIdToDetail}) => {
   return (
     <section style={{ paddingTop: "10px" }}>
       <ContactInfo />
@@ -20,7 +21,7 @@ const HomePage: React.FC<IProductData> = ({data,loading}) => {
       <ServiceInfo />
       <MenuHome />
       <CounterHome />
-      <BestSellerHome proData = {data.slice(0,4)}/>
+      <BestSellerHome proData = {data.slice(0,4)} getIdToDetail = {(val:any) => getIdToDetail(val)}/>
       <Gallery />
       <Appointment />
       <Feedback />

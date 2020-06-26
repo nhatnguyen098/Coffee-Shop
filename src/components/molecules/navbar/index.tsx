@@ -12,6 +12,7 @@ import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import { FaUserCircle } from "react-icons/fa";
 import ModalUser from "../modalUser";
 import { useSelector } from "react-redux";
+import CartPopover from "../cartPopover";
 import "./style.scss";
 interface INavMenu {
   id: number;
@@ -20,7 +21,7 @@ interface INavMenu {
   activeOnlyWhenExact: boolean;
   children: any;
   private: boolean;
-  main: () => void
+  main: () => void;
 }
 
 const popover = (
@@ -42,7 +43,7 @@ const popover = (
   </Popover>
 );
 
-const Index = () => {
+const Index = ({cartData,onDeleteCart}:any) => {
   const owlClass = "navWrapper";
   const [showDropDown, setShowDropDown] = useState(-1);
   const [bgNav, setBgNav] = useState<boolean>(false);
@@ -58,7 +59,7 @@ const Index = () => {
     }
   });
 
-  const scrollTop = (id:number) => {
+  const scrollTop = (id: number) => {
     window.scrollTo({
       top: id === 1 ? 0 : 800,
       behavior: "smooth",
@@ -142,13 +143,16 @@ const Index = () => {
     <Navbar
       expand="lg"
       className={`${owlClass}`}
-      style={{ backgroundColor: bgNav ? '#151111' : 'unset',transition: "0.5s" }}
+      style={{
+        backgroundColor: bgNav ? "#151111" : "unset",
+        transition: "0.5s",
+      }}
     >
       <Link
         to="/"
         className="d-flex justify-content-end align-items-center w-25"
         style={{ textDecoration: "unset" }}
-        onClick = {() => scrollTop(1)}
+        onClick={() => scrollTop(1)}
       >
         {" "}
         <Navbar.Brand style={{ color: "white" }}>Coffee Home</Navbar.Brand>
@@ -157,6 +161,9 @@ const Index = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className={`${owlClass}-nav mr-auto`}>
           {mapContentRoutes(NavbarMenu)}
+          <Nav.Item style={{ marginLeft: "15px", marginRight:'15px' }}>
+            <CartPopover data = {cartData} onDeleteCart = {(id:any) => onDeleteCart(id)}/>
+          </Nav.Item>
           <Nav.Item>
             {token ? (
               <OverlayTrigger
@@ -168,7 +175,11 @@ const Index = () => {
               </OverlayTrigger>
             ) : (
               <Nav.Link onClick={() => setModalShow(true)}>
-                <FaUserCircle size="1.5em" color="white" className = {`${owlClass}-nav-icon`}/>
+                <FaUserCircle
+                  size="1.5em"
+                  color="white"
+                  className={`${owlClass}-nav-icon`}
+                />
               </Nav.Link>
             )}
             <ModalUser show={modalShow} onHide={() => setModalShow(false)} />

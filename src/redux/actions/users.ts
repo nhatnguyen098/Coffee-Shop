@@ -33,7 +33,6 @@ export const add_new_user = (user:any) => {
 };
 
 export const add_new_user_success = (data: any) => {
-  console.log(data)
   return {
     type: ADD_NEW_USER_SUCCESS,
     data,
@@ -41,7 +40,6 @@ export const add_new_user_success = (data: any) => {
 };
 
 export const add_new_user_error = (error: any) => {
-  console.log(error)
     return {
       type: ADD_NEW_USER_ERROR,
       error,
