@@ -11,6 +11,7 @@ import {
   ADD_NEW_USER_SUCCESS,
   ADD_NEW_USER_ERROR,
 } from "./../../constants/actionTypes/userType";
+import {DISPLAY_MODAL} from '../../constants/actionTypes/navBarType'
 import { all, call, takeLatest, put } from "redux-saga/effects";
 
 function* getUserSaga(action: any) {
@@ -20,6 +21,7 @@ function* getUserSaga(action: any) {
       yield call(setToken, data.user.xa);
     }
     yield put({ type: FETCHING_USER_SUCCESS, data });
+    yield put({ type: DISPLAY_MODAL, show:false });
   } catch (error) {
     yield put({ type: FETCHING_USER_ERROR, error });
   }

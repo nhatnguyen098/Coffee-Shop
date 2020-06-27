@@ -1,7 +1,7 @@
 import React, {useRef,useEffect} from "react";
 import { useForm } from "react-hook-form";
 import { Form } from "react-bootstrap";
-import Button from "../atoms/buttons";
+import Button from "../../atoms/buttons";
 import * as Yup from "yup";
 const schema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),

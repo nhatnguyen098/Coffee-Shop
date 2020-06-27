@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import Loading from "../components/atoms/loading";
 const HomePage = lazy(() => import("../containers/home"));
-// const LoginPage = lazy(() => import("../containers/login"));
+const LoginPage = lazy(() => import("../containers/login"));
 const AboutPage = lazy(() => import("../containers/about"));
 const ProductList = lazy(() => import("../containers/productList"));
 const ProductDetail = lazy(() => import("../containers/productDetail"));
@@ -10,6 +10,8 @@ const UserProfile = lazy(() => import("../containers/userProfile"));
 const ServicesCoffee = lazy(() => import("../containers/serviceCoffee"));
 const Contact = lazy(() => import("../containers/contact"));
 const CartPage = lazy(() => import("../containers/cart"));
+const CheckOutPage = lazy(() => import("../containers/checkout"));
+const LoadingPage = lazy(() => import("../containers/loadingPage"));
 // const SignUp = lazy(() => import("../containers/signUp"));
 interface IRoutes {
   match: any;
@@ -81,19 +83,18 @@ export const NavbarMenu = [
       </Suspense>
     ),
   },
-  // {
-  //   id: 6,
-  //   label:'Login',
-  //   path: "/login",
-  //   exact: true,
-  //   children: [],
-  //   private:false,
-  //   main: (routes: IRoutes) => (
-  //     <Suspense fallback={<Loading/>}>
-  //       <LoginPage match={routes.match} history={routes.history} />
-  //     </Suspense>
-  //   ),
-  // },
+  {
+    id: 6,
+    path: "/login",
+    exact: true,
+    children: [],
+    private: false,
+    main: (routes: IRoutes) => (
+      <Suspense fallback={<Loading />}>
+        <LoginPage match={routes.match} history={routes.history} />
+      </Suspense>
+    ),
+  },
   {
     id: 7,
     path: "/product/:id",
@@ -102,7 +103,7 @@ export const NavbarMenu = [
     private: false,
     main: (routes: IRoutes) => (
       <Suspense fallback={<Loading />}>
-        <ProductDetail match = {routes.match}/>
+        <ProductDetail match={routes.match} />
       </Suspense>
     ),
   },
@@ -127,6 +128,30 @@ export const NavbarMenu = [
     main: (routes: IRoutes) => (
       <Suspense fallback={<Loading />}>
         <CartPage />
+      </Suspense>
+    ),
+  },
+  {
+    id: 10,
+    path: "/checkout",
+    activeOnlyWhenExact: true,
+    children: [],
+    private: true,
+    main: (routes: IRoutes) => (
+      <Suspense fallback={<Loading />}>
+        <CheckOutPage match={routes.match} history={routes.history} />
+      </Suspense>
+    ),
+  },
+  {
+    id: 11,
+    path: "/waitLogin",
+    activeOnlyWhenExact: true,
+    children: [],
+    private: false,
+    main: (routes: IRoutes) => (
+      <Suspense fallback={<Loading />}>
+        <LoadingPage/>
       </Suspense>
     ),
   },

@@ -43,11 +43,11 @@ const popover = (
   </Popover>
 );
 
-const Index = ({cartData,onDeleteCart}:any) => {
+const Index = ({cartData,onDeleteCart,displayModal,changeDisplayModal}:any) => {
   const owlClass = "navWrapper";
   const [showDropDown, setShowDropDown] = useState(-1);
   const [bgNav, setBgNav] = useState<boolean>(false);
-  const [modalShow, setModalShow] = useState<boolean>(false);
+  // const [modalShow, setModalShow] = useState<boolean>(false);
   const { token } = useSelector((state: any) => state.users.data);
 
   useScrollPosition(({ prevPos, currPos }) => {
@@ -174,7 +174,7 @@ const Index = ({cartData,onDeleteCart}:any) => {
                 <FaUserCircle size="1.5em" color="white" />
               </OverlayTrigger>
             ) : (
-              <Nav.Link onClick={() => setModalShow(true)}>
+              <Nav.Link onClick={() => changeDisplayModal(true)}>
                 <FaUserCircle
                   size="1.5em"
                   color="white"
@@ -182,7 +182,7 @@ const Index = ({cartData,onDeleteCart}:any) => {
                 />
               </Nav.Link>
             )}
-            <ModalUser show={modalShow} onHide={() => setModalShow(false)} />
+            <ModalUser show={displayModal} onHide={() => changeDisplayModal(false)} />
           </Nav.Item>
         </Nav>
       </Navbar.Collapse>

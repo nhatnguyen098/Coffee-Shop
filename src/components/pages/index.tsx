@@ -1,10 +1,13 @@
 import React from "react";
-import Header from "../components/organisms/header";
-import Footer from "../components/organisms/footer";
+import Header from "../organisms/header";
+import Footer from "../organisms/footer";
 import { Container } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import { toastError } from "../helpers/toastHelper";
-import bg_4 from "../assets/images/bg_4.jpg";
+import { useSelector, useDispatch } from "react-redux";
+import { toastError } from "../../helpers/toastHelper";
+import { display_modal } from "../../redux/actions/navbar";
+import { fetching_cart, delete_cart } from "../../redux/actions/cart";
+import bg_4 from "../../assets/images/bg_4.jpg";
+
 interface LayoutProps {
   children: JSX.Element[] | JSX.Element;
   auth?: boolean;
@@ -12,25 +15,32 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }): JSX.Element => {
+  const dispatch = useDispatch();
   const proError = useSelector((state: any) => state.products.error);
   const userError = useSelector((state: any) => state.users.error);
   const cartError = useSelector((state: any) => state.carts.error);
-  // const scrollToRef = (ref:any) => window.scrollTo({top:ref.current.offsetTop,behavior:'smooth'})
-  // const myRef = React.useRef(null)
-  // React.useEffect(() => scrollToRef(myRef),[])
+  const { show } = useSelector((state: any) => state.navbar);
+  const { data } = useSelector((state: any) => state.carts);
   React.useEffect(() => {
     toastError(proError);
     toastError(userError);
     toastError(cartError);
   }, [proError, userError, cartError]);
-
+  React.useEffect(() => {
+    dispatch(fetching_cart());
+  }, [dispatch]);
   return (
     <section
       style={{
         background: `url(${bg_4})`,
       }}
     >
-      <Header />
+      <Header
+        displayModal={show}
+        changeDisplayModal={(val: any) => dispatch(display_modal(val))}
+        cartData = {data}
+        onDeleteCart = {(val:any) =>dispatch(delete_cart(val)) }
+      />
       <Container fluid style={{ padding: 0, margin: 0 }}>
         {children}
       </Container>

@@ -1,16 +1,17 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import configStore from "../../redux/configStore";
 import { mapRouteMenu } from "../../commons/routeMenu";
 import { NavbarMenu } from "../../constants/routes";
 import ScrollBtn from "../../components/atoms/scrollBtn";
-import Layout from "../../commons/layout";
-
+import Layout from "../../components/pages";
 const store = configStore();
-const App = () => {
+
+const Index = () => {
+
   return (
     <Provider store={store}>
       <Router>
@@ -24,4 +25,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Index;

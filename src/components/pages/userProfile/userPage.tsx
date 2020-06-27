@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../atoms/buttons'
+import Button from '../../atoms/buttons'
 const userPage = () => {
     return (
         <div>
