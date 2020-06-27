@@ -12,6 +12,7 @@ import {
   delete_cart_success,
   delete_cart_error,
 } from "../actions/cart";
+import { toastSuccess } from "../../helpers/toastHelper";
 import { getCartList, addToCart, deleteCart } from "../../services/cartService";
 
 function* getCartSaga() {
@@ -27,6 +28,7 @@ function* postCartSaga(action: any) {
   try {
     const data = yield call(addToCart, action.data);
     data && (yield put(add_cart_success(data)));
+    toastSuccess("Add Cart Successful.!");
   } catch (error) {
     yield put(add_cart_error(error));
   }

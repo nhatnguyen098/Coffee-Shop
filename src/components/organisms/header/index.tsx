@@ -6,6 +6,8 @@ const Index = ({
   changeDisplayModal,
   cartData,
   onDeleteCart,
+  onSignOut,
+  token
 }: any) => {
   return (
     <section style={{ position: "relative" }}>
@@ -14,6 +16,8 @@ const Index = ({
         onDeleteCart={(id: any) => onDeleteCart(id)}
         displayModal={displayModal}
         changeDisplayModal={(val: any) => changeDisplayModal(val)}
+        onSignOut = {() => onSignOut()}
+        token = {token}
       />
       <Carousel />
     </section>

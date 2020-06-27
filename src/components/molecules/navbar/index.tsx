@@ -11,8 +11,9 @@ import { Route, Link } from "react-router-dom";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import { FaUserCircle } from "react-icons/fa";
 import ModalUser from "../modalUser";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import CartPopover from "../cartPopover";
+import Button from "../../atoms/buttons";
 import "./style.scss";
 interface INavMenu {
   id: number;
@@ -24,31 +25,45 @@ interface INavMenu {
   main: () => void;
 }
 
-const popover = (
-  <Popover
-    style={{ backgroundColor: `#c49b63`, color: "black" }}
-    id="popover-basic"
-  >
-    <Popover.Title
-      className="text-center"
-      style={{ backgroundColor: `#c49b63` }}
-      as="h3"
-    >
-      <strong>User Profile</strong>
-    </Popover.Title>
-    <Popover.Content style={{ color: "black" }}>
-      And here's some <strong>amazing</strong> content. It's very engaging.
-      right?
-    </Popover.Content>
-  </Popover>
-);
-
-const Index = ({cartData,onDeleteCart,displayModal,changeDisplayModal}:any) => {
+const Index = ({
+  cartData,
+  onDeleteCart,
+  displayModal,
+  changeDisplayModal,
+  onSignOut,
+  token
+}: any) => {
   const owlClass = "navWrapper";
   const [showDropDown, setShowDropDown] = useState(-1);
   const [bgNav, setBgNav] = useState<boolean>(false);
   // const [modalShow, setModalShow] = useState<boolean>(false);
-  const { token } = useSelector((state: any) => state.users.data);
+  // const { token } = useSelector((state: any) => state.users.data);
+
+  const popover = (
+    <Popover
+      style={{ backgroundColor: `#c49b63`, color: "black" }}
+      id="popover-basic"
+    >
+      <Popover.Title
+        className="text-center"
+        style={{ backgroundColor: `#c49b63` }}
+        as="h3"
+      >
+        <strong>User Profile</strong>
+      </Popover.Title>
+      <Popover.Content style={{ color: "black" }}>
+        <Button
+          className="m-1"
+          hover={false}
+          background="unset"
+          color="white"
+          onClick={() => onSignOut()}
+        >
+          Sign Out
+        </Button>
+      </Popover.Content>
+    </Popover>
+  );
 
   useScrollPosition(({ prevPos, currPos }) => {
     if (currPos.y <= -100) {
@@ -161,8 +176,11 @@ const Index = ({cartData,onDeleteCart,displayModal,changeDisplayModal}:any) => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className={`${owlClass}-nav mr-auto`}>
           {mapContentRoutes(NavbarMenu)}
-          <Nav.Item style={{ marginLeft: "15px", marginRight:'15px' }}>
-            <CartPopover data = {cartData} onDeleteCart = {(id:any) => onDeleteCart(id)}/>
+          <Nav.Item style={{ marginLeft: "15px", marginRight: "15px" }}>
+            <CartPopover
+              data={cartData}
+              onDeleteCart={(id: any) => onDeleteCart(id)}
+            />
           </Nav.Item>
           <Nav.Item>
             {token ? (
@@ -182,7 +200,10 @@ const Index = ({cartData,onDeleteCart,displayModal,changeDisplayModal}:any) => {
                 />
               </Nav.Link>
             )}
-            <ModalUser show={displayModal} onHide={() => changeDisplayModal(false)} />
+            <ModalUser
+              show={displayModal}
+              onHide={() => changeDisplayModal(false)}
+            />
           </Nav.Item>
         </Nav>
       </Navbar.Collapse>

@@ -5,6 +5,7 @@ import {
   ADD_NEW_USER,
   ADD_NEW_USER_SUCCESS,
   ADD_NEW_USER_ERROR,
+  SIGN_OUT
 } from "./../../constants/actionTypes/userType";
 export const fetching_user = (user: any) => {
   return {
@@ -45,3 +46,9 @@ export const add_new_user_error = (error: any) => {
       error,
     };
   };
+
+export const sign_out = () => {
+  return {
+    type: SIGN_OUT
+  }
+}

@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { toastError } from "../../helpers/toastHelper";
 import { display_modal } from "../../redux/actions/navbar";
 import { fetching_cart, delete_cart } from "../../redux/actions/cart";
+import {sign_out} from '../../redux/actions/users'
 import bg_4 from "../../assets/images/bg_4.jpg";
 
 interface LayoutProps {
@@ -21,6 +22,7 @@ const Layout: React.FC<LayoutProps> = ({ children }): JSX.Element => {
   const cartError = useSelector((state: any) => state.carts.error);
   const { show } = useSelector((state: any) => state.navbar);
   const { data } = useSelector((state: any) => state.carts);
+  const {token} = useSelector((state: any) => state.users.data);
   React.useEffect(() => {
     toastError(proError);
     toastError(userError);
@@ -40,6 +42,8 @@ const Layout: React.FC<LayoutProps> = ({ children }): JSX.Element => {
         changeDisplayModal={(val: any) => dispatch(display_modal(val))}
         cartData = {data}
         onDeleteCart = {(val:any) =>dispatch(delete_cart(val)) }
+        onSignOut = {() => dispatch(sign_out())}
+        token = {token}
       />
       <Container fluid style={{ padding: 0, margin: 0 }}>
         {children}

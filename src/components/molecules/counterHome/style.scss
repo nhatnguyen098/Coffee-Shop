@@ -30,40 +30,19 @@
 
         &-icons {
             position: relative;
-
-            &-span {
-                &:after {
-                    content: '';
-                    position: absolute;
-                    transform: translate(-50%, -50%);
-                    top: 50%;
-                    left: 50%;
-                    border: 1px solid $brown-color;
-                    width: 80px;
-                    height: 80px;
-                    // transform: rotate(135deg);
-                }
-                &:hover {
-                    &:after {
-                        content: '';
-                        position: absolute;
-                        transform: translate(-50%, -50%);
-                        top: 50%;
-                        left: 50%;
-                        border: 1px solid $brown-color;
-                        width: 80px;
-                        height: 80px;
-                        // transform: rotate(135deg);
-                    }
-                    // transform: rotate(135deg);
-                    transition: 0.5s;
-                }
+            border:1px solid gray;
+            width: 100px;
+            height: 100px;
+            &-img {
+                position: absolute;
+                transform: translate(-50%, -50%);
+                top: 50%;
             }
-
-
-
-
-
+            &:hover {
+                transform: rotate(135deg);
+                transition: 0.5s;
+            }
+          
         }
 
     }

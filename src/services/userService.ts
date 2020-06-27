@@ -8,3 +8,7 @@ export const postUserAPI = (user: any) => {
 export const setToken = (token: any) => {
   localStorage.setItem("token", token);
 };
+
+export const removeToken = async () => {
+  await localStorage.removeItem('token')
+}
