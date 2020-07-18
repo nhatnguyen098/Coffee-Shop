@@ -3,6 +3,7 @@ import { Carousel } from "react-bootstrap";
 import Button from "../../atoms/buttons";
 import "./style.scss";
 import { arr } from "../../../constants/arrCarousel";
+import LazyLoadingImage from "../../atoms/lazyLoadingImage";
 interface ICarouselItem {
   key: number;
   img: string;
@@ -20,7 +21,7 @@ const Index: React.FC<ICarousel> = ({ arrCarousel }) => {
     rs = arr.map((item: any, i: number) => {
       return (
         <Carousel.Item key={i} className={`${owlClass}-item`}>
-          <img
+          <LazyLoadingImage
             className={`${owlClass}-item-img d-block`}
             src={item.img}
             alt="First slide"
@@ -64,11 +65,7 @@ const Index: React.FC<ICarousel> = ({ arrCarousel }) => {
     });
     return rs;
   };
-  return (
-    <Carousel className={owlClass}>
-      {mapItemToCarousel(arr)}
-    </Carousel>
-  );
+  return <Carousel className={owlClass}>{mapItemToCarousel(arr)}</Carousel>;
 };
 
 export default Index;

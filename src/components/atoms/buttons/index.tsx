@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import './style.scss'
+import "./style.scss";
 interface IButton {
   className?: string;
   color?: string;
@@ -22,12 +22,20 @@ const Index: React.FC<IButton> = ({
   size,
   border,
   width,
-  height
+  height,
 }) => {
   return (
     <Button
-      className={`${className} ${hover && 'activeHover'}`}
-      style={{width: width, height: height, border: border ,fontSize: size, color: color, backgroundColor: background, borderColor: background}}
+      className={`${className} ${hover && "activeHover"}`}
+      style={{
+        width: width,
+        height: height,
+        border: border,
+        fontSize: size,
+        color: color,
+        backgroundColor: background,
+        borderColor: background,
+      }}
       onClick={onClick}
     >
       {children}

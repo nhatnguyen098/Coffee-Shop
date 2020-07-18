@@ -43,7 +43,7 @@ const Index = ({ data, onDeleteCart }: any) => {
           </Popover.Title>
           <Popover.Content style={{ color: "white" }}>
             <ul className="list-unstyled">
-              {data &&
+              {data && data.length > 0 ? (
                 data.map((item: any, i: number) => {
                   return (
                     <Media as="li" key={i}>
@@ -72,7 +72,14 @@ const Index = ({ data, onDeleteCart }: any) => {
                       </Button>
                     </Media>
                   );
-                })}
+                })
+              ) : (
+                <Media as="li">
+                  <Media.Body>
+                    <h5 className = 'text-center'>No items in cart</h5>
+                  </Media.Body>
+                </Media>
+              )}
             </ul>
           </Popover.Content>
           <section

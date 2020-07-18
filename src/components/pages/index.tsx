@@ -35,6 +35,7 @@ const Layout: React.FC<LayoutProps> = ({ children }): JSX.Element => {
     <section
       style={{
         background: `url(${bg_4})`,
+        opacity: show ? 0.98 : 1
       }}
     >
       <Header

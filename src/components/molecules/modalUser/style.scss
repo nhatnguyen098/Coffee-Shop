@@ -1,7 +1,7 @@
 @import '../../../commons/style.scss';
-
 .m-modalUser {
     padding-left: unset !important;
+
     .modal-content {
         background: rgba(0, 0, 0, 0.5);
         color: white;
@@ -13,13 +13,14 @@
                 margin-bottom: 15px;
                 text-align: center;
             }
-    
+
             .active {
                 background-color: $brown-color;
+
                 &:focus {
                     outline: unset !important;
                     box-shadow: unset !important;
-                    border:unset !important;
+                    border: unset !important;
                 }
             }
         }

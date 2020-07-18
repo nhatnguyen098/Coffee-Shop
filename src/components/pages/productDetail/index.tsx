@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Row, Col, Card, Form } from "react-bootstrap";
 import Button from "../../atoms/buttons";
 import "./style.scss";
+import LazyLoadImage from "../../atoms/lazyLoadingImage";
 interface IProDetail {
   data: any;
   onAddToCart: (item: any) => void;
@@ -35,9 +36,8 @@ const Index: React.FC<IProDetail> = ({ data, onAddToCart }) => {
         <Card className={owlClass} style={{ background: "unset" }}>
           <Row className={`${owlClass}-row`}>
             <Col md={6} className={`${owlClass}-row-col`}>
-              <Card.Img
+              <LazyLoadImage
                 style={{ width: "540px", height: "540px" }}
-                variant="top"
                 src={data.urlImage}
               />
             </Col>

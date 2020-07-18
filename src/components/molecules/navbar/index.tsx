@@ -11,7 +11,6 @@ import { Route, Link } from "react-router-dom";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import { FaUserCircle } from "react-icons/fa";
 import ModalUser from "../modalUser";
-// import { useSelector } from "react-redux";
 import CartPopover from "../cartPopover";
 import Button from "../../atoms/buttons";
 import "./style.scss";
@@ -36,8 +35,6 @@ const Index = ({
   const owlClass = "navWrapper";
   const [showDropDown, setShowDropDown] = useState(-1);
   const [bgNav, setBgNav] = useState<boolean>(false);
-  // const [modalShow, setModalShow] = useState<boolean>(false);
-  // const { token } = useSelector((state: any) => state.users.data);
 
   const popover = (
     <Popover

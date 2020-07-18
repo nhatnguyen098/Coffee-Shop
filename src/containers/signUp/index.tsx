@@ -23,13 +23,20 @@ interface ISignUp {
 }
 const Index: React.FC<ISignUp> = ({ onSubmitForm }) => {
   const dispatch = useDispatch();
-  const { register, handleSubmit, errors } = useForm<IForm>({
+  const { register, handleSubmit, reset ,errors } = useForm<IForm>({
     validationSchema: schema,
   });
   const onSubmit = handleSubmit(({ email, password }) => {
     dispatch(add_new_user({ email, password }));
+    reset()
   });
-
+  const inputRef = React.useRef<HTMLInputElement>(null)
+  React.useEffect(() => {
+      if (inputRef.current) {
+        register(inputRef.current)
+        inputRef.current.focus()
+      }
+    }, [register])
   return (
     <Form onSubmit={onSubmit}>
       <Form.Group controlId="formBasicEmail">
@@ -38,7 +45,8 @@ const Index: React.FC<ISignUp> = ({ onSubmitForm }) => {
           name="email"
           type="email"
           placeholder="Enter email"
-          ref={register}
+          // ref={register}
+          ref={inputRef}
         />
         {errors.email && (
           <Form.Text className="text-danger">{errors.email.message}</Form.Text>
