@@ -20,7 +20,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/react-scroll": "^1.5.5",
     "@types/yup": "^0.29.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "firebase": "^7.15.1",
     "node-sass": "^4.14.1",
     "rc-time-picker": "^3.7.3",
