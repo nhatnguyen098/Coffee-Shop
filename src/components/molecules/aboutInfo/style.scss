@@ -2,7 +2,9 @@
 .m-aboutInfo {
     margin:unset;
     position: relative;
+
     &-col {
+        width: 100px;
         &_left {
             padding: {
                 top: 10px;
@@ -33,5 +35,19 @@
             }
         }
 
+    }
+}
+@media only screen and (max-width: 768px) {
+    .m-aboutInfo {
+        &-col {
+            &_left {
+                &-img {
+                    width: 100%;
+                }
+            }
+            &_right {
+                display: none;
+            }
+        }   
     }
 }

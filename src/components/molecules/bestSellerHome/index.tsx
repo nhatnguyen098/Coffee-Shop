@@ -10,7 +10,7 @@ const Index = ({ proData, getIdToDetail }: any) => {
       <h2 className="d-block w-100 text-center mb-5">Best Seller Coffee</h2>
       {proData && proData.map((item: any, i: number) => {
         return (
-          <Col md = {3} key={i} style = {{marginBottom: '15px'}}>
+          <Col xs={12} sm={12} md = {12} lg={3} key={i} style = {{marginBottom: '15px'}}>
             <CardProduct
               data={item}
               getIdToDetail={(val) => getIdToDetail(val)}

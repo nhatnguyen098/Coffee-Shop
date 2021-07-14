@@ -20,7 +20,6 @@
             }
 
             &-h2 {
-
                 color: $brown-color;
             }
 
@@ -32,15 +31,41 @@
 
         &_right {
             position: absolute;
-            width: 32%;
+            width: 33%;
             height: auto;
             top: 50%;
             left: 69%;
             transform: translate(-50%, -50%);
             text-align: start;
+
             &-img:hover {
                 transform: scale(1.02);
                 transition-duration: 0.5s;
+            }
+        }
+
+    }
+
+    @media only screen and (max-width: 992px) {
+        &-col {
+            &_left {
+                width: 40%;
+                top: 50%;
+                left: 23%;
+                &-h1 {
+                    font-size: 14px;
+                }
+
+                &-p {
+                    display: none;
+                }
+            }
+
+            &_right {
+                width: 53%;
+                height: auto;
+                top: 50%;
+                left: 69%;
             }
         }
 

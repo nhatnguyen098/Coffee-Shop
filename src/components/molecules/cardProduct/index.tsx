@@ -11,7 +11,7 @@ const Index:React.FC<ICardProduct> = ({ data,getIdToDetail }) => {
   const owlClass = "m-cardProduct";
   return (
     <Card className={owlClass} style={{ width: "100%" }} onClick = {() => getIdToDetail(data.id)}>
-      <LazyLoadingImage height = '320px' width = '320px' className="text-center" src={data.urlImage}/>
+      <LazyLoadingImage height = '320px' width = 'auto' className="text-center" src={data.urlImage}/>
       <Card.Body>
         <Card.Title>{data.name}</Card.Title>
         <Card.Text>{data.description}</Card.Text>

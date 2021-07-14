@@ -9,7 +9,7 @@ const Index = () => {
   const owlClass = "m-info";
   return (
     <Row className={owlClass}>
-      <Col className = {`${owlClass}-col`}>
+      <Col xs={12} sm={12} md={12} lg={3} className = {`${owlClass}-col`}>
         <Text>
           <FaPhoneAlt color="#c49b63" style = {{marginRight:'31px'}}/>
           000 (123) 456 7890
@@ -18,7 +18,7 @@ const Index = () => {
           A small river named Duden flows by their place and supplies.
         </Text>
       </Col>
-      <Col className = {`${owlClass}-col`}>
+      <Col xs={12} sm={12} md={12} lg={3} className = {`${owlClass}-col`}>
         <Text>
           <MdMyLocation color="#c49b63" style = {{marginRight:'31px'}}/>
           198 West 21th Street
@@ -28,7 +28,7 @@ const Index = () => {
           California, USA
         </Text>
       </Col>
-      <Col className = {`${owlClass}-col`}>
+      <Col xs={12} sm={12} md={12} lg={3} className = {`${owlClass}-col`}>
         <Text>
           <WiTime3 color="#c49b63" style = {{marginRight:'31px'}}/>
           Open Monday-Friday

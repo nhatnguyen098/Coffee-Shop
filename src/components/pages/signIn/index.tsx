@@ -1,8 +1,11 @@
-import React, {useRef,useEffect} from "react";
+import React, {useRef, useEffect} from "react";
+import {useSelector} from 'react-redux'
+import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { Form } from "react-bootstrap";
 import Button from "../../atoms/buttons";
-import * as Yup from "yup";
+import Loading from '../../atoms/loading';
+
 const schema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string()
@@ -10,7 +13,6 @@ const schema = Yup.object().shape({
     .min(8, "Password is too short - should be 8 chars minimum.")
     .matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
 });
-
 interface IForm {
   email: string;
   password: string;
@@ -20,6 +22,7 @@ interface ILogin {
 }
 const LoginPage: React.FC<ILogin> = ({ onSubmitForm }) => {
   const inputRef = useRef<HTMLInputElement>(null)
+  const loading = useSelector((state:any) => state.users.loading)
   const { register, handleSubmit,reset, errors } = useForm<IForm>({
     validationSchema: schema,
   });
@@ -62,7 +65,7 @@ const LoginPage: React.FC<ILogin> = ({ onSubmitForm }) => {
         )}
       </Form.Group>
       <Form.Group controlId="formBasicCheckboxLogin">
-        <Form.Check type="checkbox" label="Check me out"/>
+        <Form.Check type="checkbox" label="Check me out" color="red"/>
       </Form.Group>
       <Button
         className="m-1"
@@ -71,7 +74,7 @@ const LoginPage: React.FC<ILogin> = ({ onSubmitForm }) => {
         color="white"
         onClick={() => onSubmit()}
       >
-        Sign In
+        {loading ? <Loading width='25px' height='25px' /> : 'Sign In'}
       </Button>
       <Button
         className="m-1"
@@ -80,7 +83,7 @@ const LoginPage: React.FC<ILogin> = ({ onSubmitForm }) => {
         color="white"
         onClick={() => reset()}
       >
-        Cancel
+        Reset
       </Button>
     </Form>
   );

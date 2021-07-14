@@ -11,6 +11,8 @@ interface IButton {
   border?: string;
   width?: any;
   height?: any;
+  disabled?: boolean;
+  props?: any;
 }
 const Index: React.FC<IButton> = ({
   className,
@@ -23,6 +25,8 @@ const Index: React.FC<IButton> = ({
   border,
   width,
   height,
+  disabled,
+  ...props
 }) => {
   return (
     <Button
@@ -37,6 +41,8 @@ const Index: React.FC<IButton> = ({
         borderColor: background,
       }}
       onClick={onClick}
+      disabled={disabled}
+      {...props}
     >
       {children}
     </Button>

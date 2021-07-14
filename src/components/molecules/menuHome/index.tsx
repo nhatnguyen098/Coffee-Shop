@@ -10,7 +10,7 @@ const Index = () => {
   const owlClass = "m-menu";
   return (
     <Row className={owlClass}>
-      <Col md={6} className={`${owlClass}-col_left`}>
+      <Col xs={12} sm={12} md={12} lg={6} className={`${owlClass}-col_left`}>
         <h2 className={`${owlClass}-col_left-h2`}>Discover</h2>
         <h1 className={`${owlClass}-col_left-h1`}>OUR STORY</h1>
         <p className={`${owlClass}-col_left-p`}>
@@ -27,7 +27,7 @@ const Index = () => {
           View Full Menu
         </Button>
       </Col>
-      <Col md={6} className={`${owlClass}-col_right`}>
+      <Col xs={12} sm={12} md={12} lg={6} className={`${owlClass}-col_right`}>
         <Image className={`${owlClass}-col_right-img w-50 p-3`} src={menu_1} />
 
         <Image className={`${owlClass}-col_right-img w-50 p-3 pt-5`} src={menu_2} />

@@ -9,16 +9,16 @@ const Index = () => {
   const owlClass = "m-gallery";
   return (
     <Row className={owlClass}>
-      <Col className={`${owlClass}-col`}>
+      <Col xs={12} sm={12} md={12} lg={3} className={`${owlClass}-col`}>
         <Image className={`${owlClass}-col-img`} src={gallery_1} />
       </Col>
-      <Col className={`${owlClass}-col`}>
+      <Col xs={12} sm={12} md={12} lg={3} className={`${owlClass}-col`}>
         <Image className={`${owlClass}-col-img`} src={gallery_2} />
       </Col>
-      <Col className={`${owlClass}-col`}>
+      <Col xs={12} sm={12} md={12} lg={3} className={`${owlClass}-col`}>
         <Image className={`${owlClass}-col-img`} src={gallery_3} />
       </Col>
-      <Col className={`${owlClass}-col`}>
+      <Col xs={12} sm={12} md={12} lg={3} className={`${owlClass}-col`}>
         <Image className={`${owlClass}-col-img`} src={gallery_4} />
       </Col>
     </Row>

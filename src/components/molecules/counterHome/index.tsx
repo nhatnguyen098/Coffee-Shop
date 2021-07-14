@@ -10,30 +10,18 @@ const Index = () => {
   return (
     <Row className={owlClass} style={{ backgroundImage: `url(${bg_2})` }}>
       <Col className={`${owlClass}-col`}>
-        <div className={`${owlClass}-col-icons`}>
-          <GiCoffeeCup size="3em" color="#c49b63" className = {`${owlClass}-col-icons-img`}/>
-        </div>
         <p className={`${owlClass}-col-count`}>100</p>
         <p className={`${owlClass}-col-text`}>Coffee Branches</p>
       </Col>
       <Col className={`${owlClass}-col`}>
-        <div className={`${owlClass}-col-icons`}>
-          <GiCoffeeCup size="3em" color="#c49b63" className = {`${owlClass}-col-icons-img`}/>
-        </div>
         <p className={`${owlClass}-col-count`}>100</p>
         <p className={`${owlClass}-col-text`}>Coffee Branches</p>
       </Col>
       <Col className={`${owlClass}-col`}>
-        <div className={`${owlClass}-col-icons`}>
-          <AiOutlineCustomerService size="3em" color="#c49b63" className = {`${owlClass}-col-icons-img`}/>
-        </div>
         <p className={`${owlClass}-col-count`}>10,567</p>
         <p className={`${owlClass}-col-text`}>Happy Customer</p>
       </Col>
       <Col className={`${owlClass}-col`}>
-        <div className={`${owlClass}-col-icons`}>
-          <FiAward size="3em" color="#c49b63" className = {`${owlClass}-col-icons-img`}/>
-        </div>
         <p className={`${owlClass}-col-count`}>100</p>
         <p className={`${owlClass}-col-text`}>Coffee Branches</p>
       </Col>

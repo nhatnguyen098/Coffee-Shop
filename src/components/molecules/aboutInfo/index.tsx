@@ -7,7 +7,7 @@ const Index = () => {
   return (
     <Row className={owlClass}>
       <Col className={`${owlClass}-col_left`}>
-        <Image className={`${owlClass}-col-img`} src={aboutImg} />
+        <Image className={`${owlClass}-col_left-img`} src={aboutImg}/>
       </Col>
       <Col className={`${owlClass}-col_right`}>
         <h2 className={`${owlClass}-col_right-h2`}>Discover</h2>

@@ -2,8 +2,8 @@ import React from 'react'
 
 const Index = () => {
     return (
-        <div style = {{border:'1px solid red', color: 'white'}}>
-            123123
+        <div className="m-5" style = {{textAlign:'center', color: 'white',}}>
+            <h1>Your order successfully.!</h1>
         </div>
     )
 }

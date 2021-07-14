@@ -8,7 +8,7 @@ const Index = () => {
   const owlClass = "m-serviceInfo";
   return (
     <Row className={owlClass}>
-      <Col className={`${owlClass}-col text-center`}>
+      <Col xs={12} sm={12} md={12} lg={4} className={`${owlClass}-col text-center`}>
         <TiDocumentText
           size="7em"
           style={{
@@ -24,7 +24,7 @@ const Index = () => {
           is an almost unorthographic.
         </p>
       </Col>
-      <Col className={`${owlClass}-col text-center`}>
+      <Col xs={12} sm={12} md={12} lg={4} className={`${owlClass}-col text-center`}>
         <GrDeliver
           size="7em"
           style={{
@@ -40,7 +40,7 @@ const Index = () => {
           is an almost unorthographic.
         </p>
       </Col>
-      <Col className={`${owlClass}-col text-center`}>
+      <Col xs={12} sm={12} md={12} lg={4} className={`${owlClass}-col text-center`}>
         <GiCoffeeBeans
           size="7em"
           style={{

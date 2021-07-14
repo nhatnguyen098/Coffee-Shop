@@ -5,6 +5,7 @@ const SignIn = lazy(() => import("../../../containers/login"));
 const SignUp = lazy(() => import("../../../containers/signUp"));
 const Index = () => {
   const [key, setKey] = React.useState("SignIn");
+  
   return (
     <Tab.Container
       id="left-tabs-example"
@@ -32,7 +33,7 @@ const Index = () => {
             </Tab.Pane>
             <Tab.Pane eventKey="SignUp">
               <Suspense fallback={<Loading />}>
-                <SignUp />
+                <SignUp onSignUpSuccess = {() => setKey("SignIn")}/>
               </Suspense>
             </Tab.Pane>
           </Tab.Content>

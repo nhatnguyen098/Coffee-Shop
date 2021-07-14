@@ -11,7 +11,7 @@ const index = () => {
   const owlClass = "o-footer";
   return (
     <Row className={owlClass}>
-      <Col className={`${owlClass}-col`}>
+      <Col xs={12} sm={12} md={3} className={`${owlClass}-col`}>
         <Media>
           <Media.Body>
             <h4 className={`${owlClass}-col-title`}>ABOUT US</h4>
@@ -33,7 +33,7 @@ const index = () => {
           </Button>
         </div>
       </Col>
-      <Col className={`${owlClass}-col`}>
+      <Col xs={12} sm={12} md={3} className={`${owlClass}-col`}>
         <Media>
           <Media.Body>
             <h4 className={`${owlClass}-col-title`}>RECENT BLOG</h4>
@@ -66,7 +66,7 @@ const index = () => {
           </Media.Body>
         </Media>
       </Col>
-      <Col>
+      <Col xs={12} sm={12} md={3}>
         <Media style = {{marginBottom: '15px'}}>
           <Media.Body>
             <h4 className={`${owlClass}-col-title`}>RECENT BLOG</h4>
@@ -97,7 +97,7 @@ const index = () => {
           </Media.Body>
         </Media>
       </Col>
-      <Col>
+      <Col xs={12} sm={12} md={3}>
         <Media>
           <Media.Body>
             <h4 className={`${owlClass}-col-title`}>HAVE A QUESTIONS?</h4>

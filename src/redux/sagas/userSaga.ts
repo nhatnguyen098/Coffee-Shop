@@ -9,7 +9,7 @@ import {
   FETCHING_USER_SUCCESS,
   FETCHING_USER_ERROR,
   ADD_NEW_USER,
-  // ADD_NEW_USER_SUCCESS,
+  ADD_NEW_USER_SUCCESS,
   ADD_NEW_USER_ERROR,
   SIGN_OUT,
 } from "./../../constants/actionTypes/userType";
@@ -33,7 +33,7 @@ function* getUserSaga(action: any) {
 function* postUserSaga(action: any) {
   try {
     const data = yield call(postUserAPI, action.user);
-    // yield put({ type: ADD_NEW_USER_SUCCESS, data });
+    yield put({ type: ADD_NEW_USER_SUCCESS, data });
     data && toastSuccess("Sign Up account successful.!");
   } catch (error) {
     yield put({ type: ADD_NEW_USER_ERROR, error });
